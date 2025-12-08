@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- 背景 -->
+  <rect width="128" height="128" rx="24" fill="#3b82f6"/>
+
+  <!-- 鍵のアイコン（開錠状態） -->
+  <g transform="translate(32, 28)">
+    <!-- 鍵の円形部分 -->
+    <circle cx="32" cy="24" r="18" fill="none" stroke="#ffffff" stroke-width="6"/>
+    <circle cx="32" cy="24" r="6" fill="#ffffff"/>
+
+    <!-- 鍵の棒部分 -->
+    <rect x="26" y="42" width="12" height="36" fill="#ffffff" rx="2"/>
+
+    <!-- 鍵の歯 -->
+    <rect x="38" y="62" width="8" height="8" fill="#ffffff"/>
+    <rect x="38" y="70" width="8" height="8" fill="#ffffff"/>
+  </g>
+
+  <!-- URLシンボル -->
+  <g transform="translate(16, 88)">
+    <text x="0" y="24" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff">URL</text>
+  </g>
+</svg>

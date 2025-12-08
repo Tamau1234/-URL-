@@ -1,0 +1,253 @@
+/**
+ * Popup Styles - ビジュアルスタイリングとフィードバック状態
+ */
+
+/* リセットとベーススタイル */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* コンテナ */
+.container {
+  width: 700px;
+  min-height: 450px;
+  padding: 28px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ヘッダー */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+header h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #7f8c8d;
+}
+
+/* セクション共通スタイル */
+section {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* 入力テキストエリア */
+#input-url {
+  width: 100%;
+  padding: 14px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fafafa;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  resize: vertical;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+#input-url:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #ffffff;
+}
+
+#input-url::placeholder {
+  color: #9ca3af;
+}
+
+/* 出力ディスプレイ */
+.output-display {
+  width: 100%;
+  min-height: 70px;
+  padding: 14px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #f9fafb;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  word-wrap: break-word;
+  word-break: break-all;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.output-display.placeholder {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* 有効なURL状態（緑色） */
+.output-display.valid {
+  border-color: #10b981;
+  background-color: #f0fdf4;
+  color: #065f46;
+}
+
+/* 無効なURL状態（赤色） */
+.output-display.invalid {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+  color: #991b1b;
+}
+
+/* アクションボタンセクション */
+.action-section {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* ボタン基本スタイル */
+.btn {
+  flex: 1;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* プライマリボタン（コピー） */
+.btn-primary {
+  background-color: #3b82f6;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+/* セカンダリボタン（確認） */
+.btn-secondary {
+  background-color: #8b5cf6;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #7c3aed;
+}
+
+/* フィードバックメッセージ */
+.feedback {
+  margin-top: 16px;
+  padding: 12px 18px;
+  font-size: 14px;
+  border-radius: 6px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.feedback.hidden {
+  display: none;
+}
+
+.feedback.success {
+  color: #065f46;
+  background-color: #d1fae5;
+  border: 1px solid #10b981;
+}
+
+.feedback.error {
+  color: #991b1b;
+  background-color: #fee2e2;
+  border: 1px solid #ef4444;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback:not(.hidden) {
+  animation: fadeIn 0.3s ease;
+}
+
+/* スクロールバーのスタイリング（Webkit系ブラウザ） */
+#input-url::-webkit-scrollbar {
+  width: 8px;
+}
+
+#input-url::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#input-url::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+#input-url::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* レスポンシブ調整（無効化 - Chrome拡張機能のポップアップは固定サイズで表示） */
+/*
+@media (max-width: 750px) {
+  .container {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .action-section {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+*/

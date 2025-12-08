@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing URL Defanger</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- ヘッダー -->
+    <header>
+      <h1>🔓 Phishing URL Defanger</h1>
+      <p class="subtitle">無効化されたURLを有効なURLに変換</p>
+    </header>
+
+    <!-- 入力セクション -->
+    <section class="input-section">
+      <label for="input-url">無効化されたURLを入力:</label>
+      <textarea
+        id="input-url"
+        placeholder="例: hxxps://malware[.]site/login.php&#10;または&#10;hxxp://phishing[.]example[.]com"
+        rows="3"
+        spellcheck="false"
+      ></textarea>
+    </section>
+
+    <!-- 出力セクション -->
+    <section class="output-section">
+      <label for="output-url">変換後のURL:</label>
+      <div id="output-url" class="output-display">
+        <span class="placeholder">ここに変換結果が表示されます</span>
+      </div>
+    </section>
+
+    <!-- アクションボタン -->
+    <section class="action-section">
+      <button id="copy-btn" class="btn btn-primary" disabled>
+        📋 コピー
+      </button>
+      <button id="check-btn" class="btn btn-secondary" disabled>
+        🔍 確認
+      </button>
+    </section>
+
+    <!-- フィードバックメッセージ -->
+    <div id="feedback" class="feedback hidden"></div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
